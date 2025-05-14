@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AcunMedyaRapidAPI.Models;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AcunMedyaRapidAPI.Controllers
 {
@@ -21,9 +24,9 @@ namespace AcunMedyaRapidAPI.Controllers
             {
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(body);
+                var value = JsonConvert.DeserializeObject<List<IMDBSeriesViewModel>>(body);
+                return View(value);
             }
-            return View();
         }
     }
 }
