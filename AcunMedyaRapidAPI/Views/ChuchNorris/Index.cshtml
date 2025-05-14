@@ -1,0 +1,13 @@
+﻿@model ChuchNorrisViewModel
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br /><br />
+    <img style="height:50px;width:50px;" src="@Model.icon_url"/>
+    <h2 class="alert alert-info"> @Model.value</h2>
+    <br />
+    <a href="@Model.url" class="btn btn-primary">Sayfaya Git!</a>
+</div>
